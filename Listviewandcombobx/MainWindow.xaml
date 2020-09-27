@@ -1,0 +1,49 @@
+﻿<Window x:Class="Listviewandcombobx.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Listviewandcombobx"
+        mc:Ignorable="d"
+        Title="Activity5" Height="350" Width="745.609">
+    <Grid>
+        <ListView Margin="10,10,307,89" Name="IvItems" RenderTransformOrigin="0.5,0.5">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header ="Image" Width="100">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <Image Source="{Binding Img}" Cursor="Hand"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+
+
+                    <GridViewColumn Header="Name" Width="120" DisplayMemberBinding="{Binding Name}" />
+                    <GridViewColumn Header="Type" Width="120" DisplayMemberBinding="{Binding Type}" />
+                    <GridViewColumn Header="Price" Width="80" DisplayMemberBinding="{Binding Price}" />
+                </GridView>
+            </ListView.View>
+
+
+        </ListView>
+        <ComboBox x:Name="comboBox" HorizontalAlignment="Left" Margin="481,10,0,0" VerticalAlignment="Top" Width="238" SelectedIndex="0">
+            <ComboBoxItem>
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="Resources/milktea-choco.png" Height="30"/>
+                    <TextBlock Text="Chocolate"/>
+                </StackPanel>
+            </ComboBoxItem>
+            <ComboBoxItem>
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="Resources/sisig-w-rice.png" Height="30"/>
+                    <TextBlock Text="Sisig with rice"/>
+                </StackPanel>
+            </ComboBoxItem>
+
+        </ComboBox>
+        <Button x:Name="button" Content="Add to Basket" HorizontalAlignment="Left" Margin="613,64,0,0" VerticalAlignment="Top" Width="106" Click="PopulateComboBox"/>
+        <Button x:Name="button1" Content="Get Total" HorizontalAlignment="Left" Margin="248,254,0,0" VerticalAlignment="Top" Width="75" Click="Btn_GetTotal"/>
+        <Button x:Name="button2" Content="Remove Item" HorizontalAlignment="Left" Margin="356,254,0,0" VerticalAlignment="Top" Width="75" Click="Btn_RmvItem"/>
+    </Grid>
+</Window>
